@@ -1,29 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Đăng nhập</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('../css/nen.jpg');
+        }
+
+        .login-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+            /* Adjust width for desktop */
+            text-align: center;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 60%;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+        }
+
+        .forgot-password {
+            font-size: 12px;
+            color: #666;
+            text-decoration: none;
+        }
+
+        .login-button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .title {
+            color: red;
+        }
+    </style>
 </head>
+
 <body>
-    <div class="form-container">
-        <!-- <h1>Quản lý đội thu phí Cầu Giẽ Ninh Bình</h1> -->
-        <img src="css/logo.png" alt="logo" class="logo">
-        <h2>Đăng nhập</h2>
-        <form id="loginForm">
-            <label for="username">Tên đăng nhập:</label>
-            <input type="text" id="username" required>
-            <br>
-            <label for="password">Mật khẩu:</label>
-            <input type="password" id="password" required>
-            <br>
-            <a href="forgot-password.html">Quên mật khẩu</a>
-            <button type="submit" id="userLoginButton" onclick="login('user')">Đăng nhập</button>
-            <button type="submit" id="adminLoginButton" onclick="login('admin')">Đăng nhập Admin</button>
-        </form>
+    <div class="login-container">
+        <h2 class="title">PHẦN MỀM QUẢN LÝ ĐỘI THU PHÍ CẦU GIẼ - NINH BÌNH</h2>
+        <h1>Đăng Nhập</h1>
+        <div class="logo">
+            <img src="css/logo.png" alt="Logo">
+        </div>
+        <input type="text" placeholder="Tên đăng nhập">
+        <input type="password" placeholder="Mật khẩu">
+        <br>
+        <a href="forgot-password.html" class="forgot-password">Quên mật khẩu?</a>
+        <br>
+        <button class="login-button" type="submit" id="userLoginButton" onclick="login('user')">Đăng nhập</button>
+
+        <button class="login-button" type="submit" id="adminLoginButton" onclick="login('admin')">Đăng nhập
+            Admin</button>
     </div>
-    <script src="js/main.js"></script>
+</body>
+
+</html>
+
+<script src="js/main.js"></script>
 
 <script>
     function login(type) {
@@ -34,8 +97,6 @@
         }
     }
 </script>
-
-
-</body>
-</html>
-
+<script>
+    // Add any JavaScript functionality here (e.g., form validation)
+</script>

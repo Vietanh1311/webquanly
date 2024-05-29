@@ -1,167 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Công việc hôm nay</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Giao diện công việc</title>
     <style>
         body {
-    font-family: Arial, sans-serif;
-}
-
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.header .user-info {
-    display: flex;
-    align-items: center;
-}
-
-.header .user-info img.avatar {
-    width: 70px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px; /* Điều chỉnh margin để tạo khoảng cách giữa avatar và tên người dùng */
-}
-
-.header .user-info .username {
-    margin-right: 10px;
-    font-weight: bold; /* Sửa chính tả từ 'bolder' thành 'bold' */
-}
-
-.header .user-info button {
-    margin-left: 10px;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-.header .nav-buttons button {
-    margin-left: 10px;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-table {
-            width: 100%;
-            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
         }
-        th, td {
-            border: 1px solid #dddddd;
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
             text-align: center;
-            padding: 8px;
+            margin-bottom: 20px;
         }
-        th {
-            background-color: #f2f2f2;
+
+        .header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
         }
-        
+
+        .header p {
+            margin: 5px 0;
+        }
+
+        .job {
+            background-color: #e0e0e0;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        .job p {
+            margin: 5px 0;
+        }
+
+        .job button {
+            background-color: #00c4b4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .logout {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            padding: 10px 0;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 300px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
+
 <body>
-    <h1>Công việc hôm nay</h1>
-    <div class="header">
-        <div class="nav-buttons">
-            <button onclick="home()">Trang chủ</button>
+    <div class="container">
+        <div class="header">
+            <img src="https://via.placeholder.com/80" alt="Profile Image">
+            <p>xin chào 👋</p>
+            <p>Tô Minh Hiếu</p>
         </div>
-        <!-- <div class="nav-buttons">
-            <button onclick="manage()">Quản lý</button>
-        </div> -->
-        <div class="nav-buttons">
-            <button onclick="checkShift()">Tra cứu ca làm</button>
+        <div class="job">
+            <p><strong>Hướng:</strong> Liêm Tuyền - Hà Nội</p>
+            <p>(Phân Trạm 1)</p>
+            <p>(Làn ETC số: 1,2,3)</p>
+            <p>Ca 1 (6:00 - 11:30)</p>
+            <p><strong>Nhân viên vận hành ETC</strong></p>
+            <p><strong>Tô Minh Hiếu</strong></p>
+            <button onclick="showModal()">vào ca</button>
         </div>
-        <div class="nav-buttons">
-            <button onclick="manage()">Quản lý</button>
+        <div class="job">
+            <p><strong>Hướng:</strong> Liêm Tuyền - Ninh Bình</p>
+            <p>(Phân Trạm 3)</p>
+            <p>(Làn ETC số: 8,9)</p>
+            <p>Ca 3 (18:00 - 6:00)</p>
+            <p><strong>Nhân viên vận hành ETC</strong></p>
+            <p><strong>Tô Minh Hiếu</strong></p>
+            <button onclick="showModal()">vào ca</button>
         </div>
-        <div class="user-info">
-            <img src="css/avt.png" alt="Avatar" class="avatar" onclick="taikhoan()">
-            <!-- <span class="username">Tên người dùng</span> -->
-            <button onclick="logout()">Đăng xuất</button>
+        <button class="logout" onclick="logout()">Đăng xuất</button>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p><strong>!</strong> Vui lòng kiểm tra các thiết bị, dụng cụ trước khi bắt đầu ca mới</p>
+            <button onclick="showNextModal()">Kiểm tra</button>
         </div>
     </div>
-    <h2>Nhật ký ca làm ngày 29/05/2024
-         <!-- <div class="real-time" id="realTime"></div> -->
-    </h2>
 
-<table>
-    <thead>
-        <tr>
-            <th></th>
-            <th>Ca 1</th>
-            <th>Ca 2</th>
-            <th>Ca 3</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan="2">Trạm 1</td>
-            <td onclick="nhatky1()">Nguyễn Văn A</td>
-            <td onclick="nhatky2()">Nguyễn Văn B</td>
-            <td onclick="nhatky3()">Nguyễn Văn C</td>
-        <tr>
-            <td>Đã hoàn thành</td>
-            <td>Đang trực</td>
-            <td>Chưa tới</td>
-        </tr>
-        <tr>
-            <td rowspan="2">Trạm 2</td>
-            <td>Võ Văn A</td>
-            <td>Võ Văn B</td>
-            <td>Võ Văn C</td>
-        </tr>
-        <tr>
-            <td>Đã hoàn thành</td>
-            <td>Đang trực</td>
-            <td>Chưa tới</td>
-        </tr>
-    </tbody>
-</table>
+    <!-- Second Modal -->
+    <div id="nextModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeNextModal()">&times;</span>
+            <p><strong>i</strong> Bạn đã kiểm tra các thiết bị và xác nhận đầy đủ</p>
+            <input type="checkbox" id="check1">
+            <label for="check1">Bạn đã kiểm tra các thiết bị và xác nhận đầy đủ</label><br>
+            <input type="checkbox" id="check2">
+            <label for="check2">Bạn thấy có bất thường. Hãy ghi chi tiết vào phần ghi chú.</label><br>
+            <textarea placeholder="Ghi chú vào ca" rows="3"></textarea><br>
+            <button>Vào ca</button>
+        </div>
+    </div>
 
-   
     <script>
-        function logout() {
-            // Redirect to the login page
-            window.location.href = 'login.html';
+        function showModal() {
+            document.getElementById("myModal").style.display = "block";
         }
-        
-        function home() {
-            // Logic to navigate to the home page
-            console.log('Trang chủ');
-        }
-        
-        function checkShift() {
-            // Logic to navigate to the shift checking page
-            window.location.href = 'calam.html';
-        }
-        
-        function manage() {
-            // Logic to navigate to the management page
-            window.location.href = 'quanly.html';
-        }
-        function taikhoan() {
-            window.location.href = 'taikhoan.html';
-        }
-        // function updateTime() {
-        //     var now = new Date();
-        //     var date = now.getDate();
-        //     var month = now.getMonth() + 1;
-        //     var year = now.getFullYear();
-        //     document.getElementById('realTime').textContent = ' ' + date + '/' + month + '/' + year;
-        // }
 
-        // Gọi hàm updateTime mỗi giây
-        setInterval(updateTime, 1000);
-        function nhatky1() {
-            window.location.href = 'nhatky1.html';
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
         }
-        function nhatky2() {
-            window.location.href = 'nhatky2.html';
+
+        function showNextModal() {
+            document.getElementById("myModal").style.display = "none";
+            document.getElementById("nextModal").style.display = "block";
         }
-        function nhatky3() {
-            window.location.href = 'nhatky3.html';
+
+        function closeNextModal() {
+            document.getElementById("nextModal").style.display = "none";
+        }
+
+        function logout() {
+            window.location.href = "login.html";
         }
     </script>
 </body>
+
 </html>
