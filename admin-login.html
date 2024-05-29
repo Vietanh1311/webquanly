@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <img src="css/logo.png" alt="Logo" class="logo">
+        <h1>Admin Login</h1>
+        <form id="adminLoginButton">
+            <label for="admin-username">Username:</label>
+            <input type="text" id="admin-username" required>
+            <br>
+            <label for="admin-password">Password:</label>
+            <input type="password" id="admin-password" required>
+            <br>
+            <button type="submit" id="adminLoginButton" onclick="login('admin')" >Login</button>
+        </form>
+    </div>
+    <script src="js/main.js"></script>
+    <script>
+        function login() {
+            window.location.href = 'admin.html';
+        }
+    </script>
+</body>
+</html>
