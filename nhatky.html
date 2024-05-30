@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhatkytram1</title>
+    <!-- <link rel="stylesheet" href="css/styles.css"> -->
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+        .actions button {
+            padding: 5px;
+            cursor: pointer;
+        }
+        .table{
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+        .table-content{
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 300px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Bảng Làm Việc</h2>
+
+<table>
+    <tr>
+        <th>Giờ</th>
+        <th>Bất thường</th>
+        <th>Hỏng</th>
+    </tr>
+    <tr>
+        <td>8:00</td>
+        <td>Không có</td>
+        <td class="actions">
+            <button onclick="showtable('Thêm hỏng')">+</button>
+            <button onclick="showtable('Viết hỏng')">&#9998;</button>
+        </td>
+    </tr>
+    <tr>
+        <td>9:00</td>
+        <td>Bị lỗi</td>
+        <td class="actions">
+            <button onclick="showtable('Thêm hỏng')">+</button>
+            <button onclick="showtable('Viết hỏng')">&#9998;</button>
+        </td>
+    </tr>
+    <tr>
+        <td>10:00</td>
+        <td>Không có</td>
+        <td class="actions">
+            <button onclick="showtable('Thêm hỏng')">+</button>
+            <button onclick="showtable('Viết hỏng')">&#9998;</button>
+        </td>
+    </tr>
+</table>
+<!-- Modal -->
+<div id="myTable" class="table">
+    <div class="table-content">
+        <span class="close" onclick="closeTable()">&times;</span>
+        <p><strong>&#9998;</strong></p>
+        <p>Giờ hiện tại:</p>
+        <div>
+            <p>Loại thông tin:
+                <textarea placeholder="Bất thường"></textarea>
+            </p>
+        </div>
+        <div>
+            <p>Chi tiết nhật ký:
+                <textarea placeholder="Nhật ký chi tiết"></textarea>
+            </p>
+        </div>
+        <button onclick="closeTable()">lưu</button>
+    </div>
+</div>
+<div id="endTable" class="actions">
+    <button onclick="showNextTable()">Kết thúc ca</button>
+</div>
+<!-- Second Modal -->
+<div id="nextTable" class="table">
+    <div class="table-content">
+        <span class="close" onclick="closeNextTable()">&times;</span>
+        <p><strong>&#10003;</strong> Kiểm tra trước khi kết thúc ca trực</p>
+        <input type="checkbox" id="check1">
+        <label for="check1">Bạn đã kiểm tra các thiết bị và xác nhận đầy đủ</label><br>
+        <input type="checkbox" id="check2">
+        <label for="check2">Bạn thấy có bất thường. Hãy ghi chi tiết vào phần ghi chú.</label><br>
+        <textarea placeholder="Ghi chú vào ca" rows="3"></textarea><br>
+        <button onclick="enddiary()">kết thúc ca</button>
+    </div>
+</div>
+
+<script>
+    function showtable() {
+        document.getElementById("myTable").style.display = "block";
+    }
+
+    function closeTable() {
+        document.getElementById("myTable").style.display = "none";
+    }
+
+    function showNextTable() {
+        document.getElementById("myTable").style.display = "none";
+        document.getElementById("nextTable").style.display = "block";
+    }
+
+    function closeNextModal() {
+        document.getElementById("nextTable").style.display = "none";
+    }
+    function enddiary(){
+        window.location.href = "today-tasks.html";
+    }
+    // function logout() {
+    //     window.location.href = "login.html";
+    // }
+</script>
+</body>
+</html>

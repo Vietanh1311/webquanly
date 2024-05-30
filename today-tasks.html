@@ -28,7 +28,7 @@
         }
 
         .header img {
-            width: 80px;
+            width: 100px;
             height: 80px;
             border-radius: 50%;
         }
@@ -115,7 +115,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <img src="https://via.placeholder.com/80" alt="Profile Image">
+            <img src="css/avt.png" alt="Profile Image">
             <p>xin chào 👋</p>
             <p>Tô Minh Hiếu</p>
         </div>
@@ -159,7 +159,7 @@
             <input type="checkbox" id="check2">
             <label for="check2">Bạn thấy có bất thường. Hãy ghi chi tiết vào phần ghi chú.</label><br>
             <textarea placeholder="Ghi chú vào ca" rows="3"></textarea><br>
-            <button>Vào ca</button>
+            <button onclick="diary()">Vào ca</button>
         </div>
     </div>
 
@@ -180,7 +180,9 @@
         function closeNextModal() {
             document.getElementById("nextModal").style.display = "none";
         }
-
+        function diary(){
+            window.location.href = "nhatky.html";
+        }
         function logout() {
             window.location.href = "login.html";
         }
