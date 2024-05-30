@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hành chính nhân sự</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            background-image: url('../css/nen.jpg');
+        }
+
+        .container {
+            width: 535px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-text {
+            font-weight: bold;
+            text-align: center;
+            flex-grow: 2;
+        }
+
+        .back-button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .function-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .function-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .function-item img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <button class="back-button" onclick="goBack()">&larr;</button>
+            <div class="header-text">Hành chính nhân sự</div>
+        </header>
+        <main>
+            <div class="function-grid">
+                <a href="nhan-su.html" class="function-item">
+                    <img src="img\hanh-chinh-nhan-su\hr-records.jpg" alt="Hồ sơ nhân sự">
+                    <span>Hồ sơ nhân sự</span>
+                </a>
+                <a href="#hop-dong" class="function-item">
+                    <img src="img\hanh-chinh-nhan-su\contract.jpg" alt="Hợp đồng">
+                    <span>Hợp đồng</span>
+                </a>
+                <a href="#cham-cong" class="function-item">
+                    <img src="img\hanh-chinh-nhan-su\timekeeping.jpg" alt="Chấm công">
+                    <span>Chấm công</span>
+                </a>
+                <a href="#quan-ly-phep" class="function-item">
+                    <img src="img\hanh-chinh-nhan-su\license-management.jpg" alt="Quản lý phép">
+                    <span>Quản lý phép</span>
+                </a>
+                <a href="#tien-luong" class="function-item">
+                    <img src="img\hanh-chinh-nhan-su\salary.jpg" alt="Tiền lương">
+                    <span>Tiền lương</span>
+                </a>
+                <a href="#bao-hiem" class="function-item">
+                    <img src="img\hanh-chinh-nhan-su\insurance.jpg" alt="Bảo hiểm">
+                    <span>Bảo hiểm</span>
+                </a>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
+
+<script>
+    // scripts.js
+
+    function goBack() {
+        window.history.back();
+    }
+
+</script>

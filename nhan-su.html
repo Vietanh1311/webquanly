@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhân sự</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            background-image: url('../css/nen.jpg');
+        }
+
+        .container {
+            width: 375px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-text {
+            font-weight: bold;
+            text-align: center;
+            flex-grow: 2;
+        }
+
+        .back-button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .list-headers {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        .list-item {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            cursor: pointer;
+        }
+
+        .list-subitem {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            padding-left: 20px;
+        }
+
+        .list-content.hidden {
+            display: none;
+        }
+
+        .status {
+            color: green;
+        }
+
+        .arrow {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <button class="back-button" onclick="goBack()">&larr;</button>
+            <div class="header-text">Nhân sự</div>
+        </header>
+        <main>
+            <div class="list-headers">
+                <span>Chức vụ</span>
+                <span>Số lượng</span>
+                <span>Trạng thái</span>
+            </div>
+            <div class="list-item">
+                <div class="list-header" onclick="toggleCategory('board-of-directors')">
+                    <span>Ban giám đốc</span>
+                    <span>2</span>
+                    <span class="arrow">&#9660;</span>
+                </div>
+                <div class="list-content hidden board-of-directors">
+                    <div class="list-subitem">
+                        <span>Ngô Huy Thuận</span>
+                        <span class="status">Đang làm việc</span>
+                    </div>
+                    <div class="list-subitem">
+                        <span>Đinh Văn Thống</span>
+                        <span class="status">Đang làm việc</span>
+                    </div>
+                </div>
+            </div>
+            <div class="list-item">
+                <div class="list-header" onclick="toggleCategory('fee-collection-team')">
+                    <span>Đội Thu Phí</span>
+                    <span>83</span>
+                    <span class="arrow">&#9660;</span>
+                </div>
+                <div class=" fee-collection-team">
+                    <div class="list-subitem">
+                        <span>Đội trưởng</span>
+                        <span>01</span>
+                    </div>
+                    <div class="list-subitem">
+                        <span>Đội phó</span>
+                        <span>05</span>
+                    </div>
+                    <div class="list-subitem">
+                        <span>Trưởng Ca</span>
+                        <span>09</span>
+                    </div>
+                    <div class="list-subitem">
+                        <span>NV Hậu kiểm</span>
+                        <span>05</span>
+                    </div>
+                    <div class="list-subitem">
+                        <span>NV Kỹ Thuật ETC</span>
+                        <span>09</span>
+                    </div>
+                    <div class="list-subitem">
+                        <span>NV Vận Hành ETC</span>
+                        <span>42</span>
+                    </div>
+                    <div class="list-subitem">
+                        <span>NV Cân KSTT</span>
+                        <span>12</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
+
+<script>
+    // scripts.js
+
+    function goBack() {
+        window.history.back();
+    }
+
+    function toggleCategory(categoryClass) {
+        const content = document.querySelector(`.${categoryClass}`);
+        const arrow = content.previousElementSibling.querySelector('.arrow');
+        if (content.classList.contains('hidden')) {
+            content.classList.remove('hidden');
+            arrow.innerHTML = '&#9650;';
+        } else {
+            content.classList.add('hidden');
+            arrow.innerHTML = '&#9660;';
+        }
+    }
+
+</script>
