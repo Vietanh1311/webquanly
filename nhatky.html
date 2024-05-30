@@ -6,14 +6,22 @@
     <title>Nhatkytram1</title>
     <!-- <link rel="stylesheet" href="css/styles.css"> -->
     <style>
+        body {
+            background-image: url('../css/nen.jpg');
+        }
+        .title {
+            text-align: center;
+        }
         table {
-            width: 100%;
+            margin: auto;
+            width: 80%;
             border-collapse: collapse;
         }
         th, td {
             border: 1px solid black;
             padding: 8px;
             text-align: left;
+            background-color: white
         }
         th {
             background-color: #f2f2f2;
@@ -62,11 +70,15 @@
             text-decoration: none;
             cursor: pointer;
         }
+        #endTable {
+            margin: 1% auto;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
 
-<h2>Bảng Làm Việc</h2>
+<h2 class="title">Bảng Làm Việc</h2>
 
 <table>
     <tr>
@@ -131,7 +143,7 @@
         <input type="checkbox" id="check2">
         <label for="check2">Bạn thấy có bất thường. Hãy ghi chi tiết vào phần ghi chú.</label><br>
         <textarea placeholder="Ghi chú vào ca" rows="3"></textarea><br>
-        <button onclick="enddiary()">kết thúc ca</button>
+        <button class = "end-task" onclick="enddiary()">kết thúc ca</button>
     </div>
 </div>
 
